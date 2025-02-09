@@ -20,9 +20,6 @@ function App() {
         <Route path="/otherBodies/:id" element={<CardInfo />} />
       </Route>
     ),
-    {
-      basename: '/React-JS-Projects/my-space-explorer/', // Set the basename to match the deployment path
-    }
   );
   
   return (
