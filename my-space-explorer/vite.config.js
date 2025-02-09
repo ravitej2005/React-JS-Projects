@@ -7,5 +7,5 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     react()],
-  base: '/my-space-explorer/dist'
+  base: 'React-JS-Projects/my-space-explorer'
 })
