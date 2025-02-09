@@ -21,7 +21,7 @@ function App() {
       </Route>
     ),
     {
-      basename: '/my-space-explorer', // Set the basename to match the deployment path
+      basename: '/my-space-explorer/dist', // Set the basename to match the deployment path
     }
   );
   
