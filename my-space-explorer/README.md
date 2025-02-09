@@ -4,7 +4,7 @@ Welcome to the **React Space Explorer App**! This application allows users to ex
 
 ## Live Preview
 
-[Click here to view the live app](https://ravitej2005.github.io/React-Space-Explorer-App)
+[Click here to view the live app](https://ravitej2005.github.io/React-JS-Projects/my-space-explorer)
 
 
 ## Features
@@ -57,11 +57,11 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     react()],
-  base: '/space-explorer-web-app'
+  base: '/my-space-explorer'
 })
 ```
 
-  - Configure the tailwind.config.js as follows(optional gor tailwind intellisense)
+  - Configure the tailwind.config.js as follows(optional for tailwind intellisense)
 ```
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -87,16 +87,17 @@ npm run dev
 # Project Structure
 
 ```plaintext
-React-Space-Explorer-App/
-├── index.html
+my-space-explorer/
+├── dist
+|   ├── assets/
+│   └── index.html
+├── dist
 ├── package.json
 ├── vite.config.js
 ├── public/
 │   └── ...
 ├── src/
-│   ├── assets/
 │   ├── components/
-│   ├── pages/
 │   ├── App.jsx
 │   ├── index.css
 │   ├── main.jsx
@@ -125,8 +126,8 @@ React-Space-Explorer-App/
 To clone the project and start working:
 
 ```bash
-git clone https://github.com/ravitej2005/React-Space-Explorer-App.git
-cd React-Space-Explorer-App
+git clone https://github.com/ravitej2005/React-JS-Projects.git
+cd React-JS-Projects/my-space-explorer
 ```
 
 # Technologies Used
