@@ -21,7 +21,7 @@ function App() {
       </Route>
     ),
     {
-      basename: '/React-Space-Explorer-App', // Set the basename to match the deployment path
+      basename: '/my-space-explorer', // Set the basename to match the deployment path
     }
   );
   
