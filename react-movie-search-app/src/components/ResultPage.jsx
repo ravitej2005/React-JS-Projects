@@ -25,7 +25,7 @@ function ResultPage() {
       }
     }  
   fetchData()}
-    ,[refresh]);
+    ,[refresh, id]);
 
   if (loading) return <p>Loading....</p>
   if (error) {

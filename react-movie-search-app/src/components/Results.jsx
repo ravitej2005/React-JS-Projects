@@ -8,19 +8,24 @@ function Results() {
   const data = location.state?.data;
   console.log("in results", data);
 
-  return (
-    data && <div className='grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-5 px-10'>
-      {
-        data.Search.map((movie) => {
-          return (
-            <Link onClick={() => { setData(undefined) }} to={`/results/${movie.imdbID}`}>
-              <Card movie={movie} />
-            </Link>
-          )
-        })
-      }
-    </div>
-  )
+  if (data) {
+    return (
+      data.Response == 'True' 
+      ? (<div className='grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-5 px-10'>
+        {
+          data.Search.map((movie) => {
+            return (
+              <Link onClick={() => { setData(undefined) }} to={`/results/${movie.imdbID}`}>
+                <Card movie={movie} />
+              </Link>
+            )
+          })
+        }
+      </div>) 
+      : <p>{data.Error}</p>
+    )
+  }
+ 
 }
 
 export default Results

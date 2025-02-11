@@ -19,7 +19,7 @@ function Header() {
     console.log("In async func");
     
     try {
-      setInput(e.target.value)
+      setInput(e)
       
       let str = e.target.value.trim()
       if (str) {
@@ -39,7 +39,8 @@ function Header() {
 
   function displayResults(){
     console.log(input);
-    if(input.trim()!=='') navigate("/results", { state: { data } });  
+    if(input.target.value.trim()!=='') navigate("/results", { state: { data } });  
+    input.target.value = ''
     setData(undefined)
   }
 
@@ -50,7 +51,7 @@ function Header() {
         <div className='w-full max-w-md relative'>
           <input type="text" placeholder="Search..." className='border p-3 focus:outline-1 w-full rounded-l-full' onChange={SearchResults} />
           <div className='w-full rounded-lg mt-1 absolute bg-gray-100 overflow-x-hidden top-full z-10'>
-            <Searches data={data} setData={setData} />
+            <Searches data={data} input={input} setData={setData} />
           </div>
         </div>
           <button onClick={displayResults} className='bg-gray-100 border p-3 px-5 hover:bg-gray-200 active:bg-gray-300 rounded-r-full '>Search</button>
