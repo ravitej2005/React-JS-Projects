@@ -49,7 +49,7 @@ function Header() {
       <div className='grow flex justify-center'>
         <div className='w-full max-w-md relative'>
           <input type="text" placeholder="Search..." className='border p-3 focus:outline-1 w-full rounded-l-full' onChange={SearchResults} />
-          <div className='w-full rounded-lg mt-1 absolute bg-gray-100 overflow-x-hidden'>
+          <div className='w-full rounded-lg mt-1 absolute bg-gray-100 overflow-x-hidden top-full z-10'>
             <Searches data={data} setData={setData} />
           </div>
         </div>

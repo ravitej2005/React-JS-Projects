@@ -32,7 +32,7 @@ function ResultPage() {
     return (
       <div>
         <p>Something went wrong...</p>
-        <button className='bg-blue-400 text-white p-4 rounded-lg border' onClick={()=>{setRefresh(!refresh)}}>Refresh</button>
+        <button className='bg-blue-400 text-white p-4 rounded-lg border cursor-pointer' onClick={()=>{setRefresh(!refresh)}}>Refresh</button>
       </div>
     )
   }
