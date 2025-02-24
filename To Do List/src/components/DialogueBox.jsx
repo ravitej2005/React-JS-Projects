@@ -62,7 +62,7 @@ function DialogueBox({ Task , NoteId , handleEdit}) {
 
   return (
     <div className='fixed inset-0 bg-none bg-opacity-30 backdrop-blur-sm flex justify-center items-center'>
-      <div className="bg-white p-6 rounded-2xl shadow-xl w-full max-w-lg border border-green-300">
+      <div className="m-5 bg-white p-6 rounded-2xl shadow-xl w-full max-w-lg border border-green-300">
         <h2 className="text-2xl font-semibold text-green-900 mb-4 text-center">Edit Note 🌿</h2>
   
         <form onSubmit={handleSave} className="space-y-4">

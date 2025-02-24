@@ -58,7 +58,7 @@ function AddNote() {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-green-100 to-green-200">
-      <div className="bg-white p-6 rounded-2xl shadow-xl w-full max-w-lg border border-green-300">
+      <div className="bg-white p-6 rounded-2xl shadow-xl w-full max-w-lg border border-green-300 m-5">
         <h2 className="text-2xl font-semibold text-green-900 mb-4 text-center">Add New Note 🌿</h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
