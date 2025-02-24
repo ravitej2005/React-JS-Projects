@@ -1,11 +1,12 @@
 import React, { useState , useEffect } from 'react';
 import DialogueBox from './DialogueBox';
+import { v4 as uuidv4 } from 'uuid';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCanEdit , removeCompleted } from '../features/notes';
 
-function Home({ Notes, setNotes }) {
-  const myarr = Notes.map(()=> false)
-  // console.log("myarr",myarr);
-  const [canEdit , setCanEdit] = useState(myarr)
-  // const [isComplete , setIsComplete] = useState(myarr)
+function Home() {
+  const Notes = useSelector((state)=>state.notes)
+  const dispatch = useDispatch()
   
   function getPriorityColor(priority) {
     if (priority === "High") return "bg-red-500";
@@ -13,15 +14,13 @@ function Home({ Notes, setNotes }) {
     return "bg-green-500"; // Low Priority
   }
 
-  function handleEdit(index){
-    const newCanEdit = [...canEdit]
-    newCanEdit[index] = !newCanEdit[index]
-    setCanEdit(newCanEdit)
-    console.log(newCanEdit);    
+  function handleEdit(NoteId){
+      dispatch(setCanEdit(NoteId))
   }
 
-  function handlleComplete(index) {
-    let newNotes = Notes.filter((note)=>{return })
+  function handleCompleted(NoteId){
+    dispatch(removeCompleted(NoteId))
+    alert("Task Completed")
   }
 
     return (
@@ -30,12 +29,9 @@ function Home({ Notes, setNotes }) {
   
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
           {
-            canEdit.map((value , index)=>{
-              if(value === true){
-                return <DialogueBox key={index} index={index} Task={Notes[index]} setNotes={setNotes}  handleEdit={handleEdit} />
-              }       
-              return null
-            }) 
+            Notes.map((Note)=>
+              Note.canEdit && <DialogueBox key={Note.id} NoteId={Note.id} Task={Note} handleEdit={handleEdit} />
+            )
           }
           {Notes.map((Task, index) => (
             <div key={index} className="p-4 bg-white shadow-lg rounded-lg border border-gray-300">
@@ -55,20 +51,13 @@ function Home({ Notes, setNotes }) {
               <span className="block text-sm text-gray-600 mt-2">🗂️ {Task.type || "No Category"}</span>
   
               <button
-                onClick={() => handleEdit(index)}
+                onClick={() => handleEdit(Task.id)}
                 className="mt-3 mr-2 px-4 py-1 text-white rounded bg-blue-500 hover:bg-blue-600 transition-all"
               >
                 Edit
               </button>
               <button
-                onClick={() => {
-                  const newNotes = Notes.filter((TaskTwo, indexTwo)=>{
-                    if(index !== indexTwo){
-                      return TaskTwo;
-                    } 
-                  });
-                  setNotes(newNotes) 
-                }}
+                onClick={()=>{handleCompleted(Task.id)}}
                 className="mt-3 px-4 py-1 text-white rounded bg-blue-500 hover:bg-blue-600 transition-all"
               >
                 Mark As Completed

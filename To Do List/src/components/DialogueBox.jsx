@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { EditNotesData } from '../features/notes';
+import { useDispatch } from 'react-redux';
 
-function DialogueBox({ Task , setNotes , index , handleEdit}) {
+function DialogueBox({ Task , NoteId , handleEdit}) {
+  const dispatch = useDispatch()
+
   const [formData, setFormData] = useState({
     title: Task.title,
     desc: Task.desc,
     datetime: Task.datetime,
     priority: Task.priority,
     type: Task.type,
+    id: Task.id
   });
 
   const [errors, setErrors] = useState({});
@@ -32,23 +38,16 @@ function DialogueBox({ Task , setNotes , index , handleEdit}) {
     setErrors(validateFields);
     if (Object.keys(validateFields).length === 0) {
       setErrors({});
-
-      setNotes((prevNotes) => {
-        // const newData = [...prevNotes];
-        // newData[index] = formData
-        // return newData
-        prevNotes[index] = formData
-        return prevNotes
-      });
-
+      dispatch(EditNotesData({...Task, ...formData}))
       setFormData({
         title: '',
         desc: '',
         datetime: null,
         priority: '',
         type: '',
-      });
-      handleEdit(index)
+      }) 
+      // alert("Task Edited")
+      handleEdit(NoteId)
     }
   }
 

@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { addNote } from '../features/notes';
+import { useDispatch } from 'react-redux';
 
-function AddNote({ setNotes }) {
+function AddNote() {
+  const dispatch = useDispatch()
+
   const [formData, setFormData] = useState({
     title: '',
     desc: '',
@@ -32,7 +37,8 @@ function AddNote({ setNotes }) {
     setErrors(validateFields);
     if (Object.keys(validateFields).length === 0) {
       setErrors({});
-      setNotes((prevNotes) => [...prevNotes, formData]);
+      const noteWithId = { ...formData, id: uuidv4() }; // assign id here
+      dispatch(addNote(noteWithId));
       setFormData({
         title: '',
         desc: '',
@@ -40,6 +46,7 @@ function AddNote({ setNotes }) {
         priority: '',
         type: '',
       });
+      alert("Note Added")
     }
   }
 

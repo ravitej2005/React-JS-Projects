@@ -13,7 +13,6 @@ function Header() {
         {[
           { path: "/home", name: "Home" },
           { path: "/addnotes", name: "Add Task" },
-          { path: "/about", name: "About" },
         ].map((link) => (
           <li key={link.name}>
             <NavLink
