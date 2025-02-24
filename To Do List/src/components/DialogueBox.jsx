@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+/* eslint-disable react/prop-types */
+import { useState } from 'react';
 import { EditNotesData } from '../features/notes';
 import { useDispatch } from 'react-redux';
+import Swal from 'sweetalert2'
 
 function DialogueBox({ Task , NoteId , handleEdit}) {
   const dispatch = useDispatch()
@@ -47,6 +48,14 @@ function DialogueBox({ Task , NoteId , handleEdit}) {
         type: '',
       }) 
       // alert("Task Edited")
+      Swal.fire({
+        position: 'center',
+        heightAuto: false ,
+        icon: "success",
+        title: "Your work has been saved",
+        showConfirmButton: false,
+        timer: 1500
+      });
       handleEdit(NoteId)
     }
   }

@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { addNote } from '../features/notes';
 import { useDispatch } from 'react-redux';
+import Swal from 'sweetalert2'
 
 function AddNote() {
   const dispatch = useDispatch()
@@ -46,7 +47,12 @@ function AddNote() {
         priority: '',
         type: '',
       });
-      alert("Note Added")
+      Swal.fire({
+        title: "Task Added!",
+        icon: "success",
+        iconColor: "green",
+        confirmButtonColor: "green"
+      });
     }
   }
 
