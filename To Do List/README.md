@@ -42,6 +42,7 @@ This is a responsive To-Do List application built with React that helps you mana
    npm install react-router-dom
    npm install @reduxjs/toolkit react-redux
    npm install sweetalert2
+   npm install lucide-react
    ```
 
 ### Running the Application
