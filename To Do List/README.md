@@ -1,6 +1,3 @@
-Below is a sample README file you can use for your project:
-
----
 
 # To-Do List Application
 
@@ -72,7 +69,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 - [Tailwind CSS](https://tailwindcss.com/)
 - [React Router DOM](https://reactrouter.com/)
 - [Redux Toolkit](https://redux-toolkit.js.org/)
-
----
-
-You can copy and paste this content into your `README.md` file in the repository. Enjoy coding!
