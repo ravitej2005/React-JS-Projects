@@ -42,6 +42,9 @@ This is a responsive To-Do List application built with React that helps you mana
    Using npm:
    ```bash
    npm install
+   npm install react-router-dom
+   npm install @reduxjs/toolkit react-redux
+   npm install sweetalert2
    ```
 
 ### Running the Application
